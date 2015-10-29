@@ -1,4 +1,10 @@
+<h1>Your cocktail</h1>
 
- <h1>Here insert the cocktail name</h1>
- <h2>Here insert the ingredients list</h2>
- <h3>And mix and drink</h3>
+<h2><%= cocktail.name %></h2>
+
+<h3>To make this marvelous cocktail you'll need: </h3>
+<% @cocktail.ingredients.each do |ingredient| %>
+  <h4><%= ingredient.name %></h4>
+<% end %>
+
+<%= link_to "Add a new ingredient", new_cocktail_dose_path %>
