@@ -1,11 +1,11 @@
 <%= simple_form_for [@cocktail, @dose] do |f| %>
 
-  <% f.input :description, label: "Dose description" %>
-  <% f.input :ingredient_id, collection: Ingredient.all %>
+  <%= f.input :description, label: "Dose description" %>
+  <%= f.input :ingredient_id, collection: Ingredient.all %>
 
  <!-- Ici comment savoir quand je cale :name que c'est pour le rattacher à ingrédient ?
 #  -->
-  <% f.button :submit, label_html: {class: "btn btn-success"} %>
+  <%= f.button :submit, label_html: {class: "btn btn-success"} %>
 <% end %>
 <!--
 
