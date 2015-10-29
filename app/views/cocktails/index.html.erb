@@ -1,19 +1,21 @@
 <div class="container">
-  <h1>Hey, welcome to this awesome cocktail list</h1>
+  <h1>Hey, welcome to this awesome cocktail list
+        <%= link_to "Add a new cocktail", new_cocktail_path, class: "btn btn-warning btn-lg" %></h1>
+    <div class="row">
+    <div class="col-sm-6 div-sm-offset-3">
+
+    </div>
+  </div>
   <div class="row">
     <% @cocktails.each do |cocktail| %>
       <div class="col-sm-3">
         <div class="card">
           <span class="label label-success">NEW</span>
-          <h3><%= cocktail.name %></h3>
+          <h3><%=link_to cocktail.name, cocktail_path(cocktail) %></h3>
         </div>
       </div>
     <% end %>
   </div>
 
-  <div class="row">
-    <div class="col-sm-6 div-sm-offset-3">
-      <%= link_to "Create a new cocktail", new_cocktail_path %>
-    </div>
-  </div>
+
 </div>

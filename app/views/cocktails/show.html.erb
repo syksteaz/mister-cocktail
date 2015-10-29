@@ -1,15 +1,24 @@
-<h1>Your cocktail</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <h1>Your cocktail</h1>
+      <h2><%= @cocktail.name %></h2>
+      <h3>To make this marvelous cocktail you'll need: </h3>
+      <ul>
+        <% @cocktail.doses.each do |dose| %>
+          <li>
+            <%= dose.ingredient.name %> - <%= dose.description %>
+            <%= link_to "Delete", dose_path(dose), method: :delete %>
+          </li>
+        <% end %>
+      </ul>
+      <%= link_to "Add a new ingredient", new_cocktail_dose_path(@cocktail) %> <br>
+      <%= link_to "Back to list", cocktails_path, class: "btn btn-success" %>
+    </div>
+  </div>
+</div>
 
-<h2><%= @cocktail.name %></h2>
 
-<h3>To make this marvelous cocktail you'll need: </h3>
-  <% @cocktail.doses.each do |dose| %>
-    <h4><%= dose.ingredient.name %></h4>
-    <h4><%= dose.description %></h4>
-    <%= link_to "Delete this ingredient", cocktail_dose_path(@cocktail), method: :delete %>
-  <% end %>
-
-<%= link_to "Add a new ingredient", cocktail_dose_path(@cocktail) %>
 
 
 <!-- Ici c'est à modifier parce qu'on veut itérer sur la dose, pour pouvoir l'utiliser pour
