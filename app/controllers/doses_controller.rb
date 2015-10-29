@@ -14,7 +14,8 @@ class DosesController < ApplicationController
   end
 
   def delete
-    # TO DO
+    @dose = @cocktail.doses.delete(dose_params)
+    redirect_to cocktail_path(@cocktail)
   end
 
 

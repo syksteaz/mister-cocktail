@@ -5,6 +5,7 @@
 <h3>To make this marvelous cocktail you'll need: </h3>
   <% @ingredients.each do |ingredient| %>
     <h4><%= ingredient.name %></h4>
+    <%= link_to "Delete this ingredient", cocktail_dose_path(@cocktail), method: :delete %>
   <% end %>
 
-<%= link_to "Add a new ingredient", new_cocktail_dose_path(@cocktail) %>
+<%= link_to "Add a new ingredient", cocktail_dose_path(@cocktail) %>
