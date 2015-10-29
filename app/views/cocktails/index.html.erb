@@ -3,7 +3,10 @@
   <div class="row">
     <% @cocktails.each do |cocktail| %>
       <div class="col-sm-3">
-        <h3><% cocktail.name %></h3>
+        <div class="card">
+          <span class="label label-success">NEW</span>
+          <h3><%= cocktail.name %></h3>
+        </div>
       </div>
     <% end %>
   </div>
