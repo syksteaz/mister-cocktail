@@ -1,4 +1,4 @@
-<%= simple_form_for (@cocktail, @dose) do |f| %>
+<%= simple_form_for [@cocktail, @dose] do |f| %>
 
   <% f.input :description, label: "Dose description" %>
   <% f.input :ingredient_id, collection: Ingredient.all %>
