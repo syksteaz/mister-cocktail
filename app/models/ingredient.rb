@@ -1,6 +1,6 @@
 class Ingredient < ActiveRecord::Base
   has_many :doses
-  validates :name, uniqueness: true, presence: true
+  validates :name, uniqueness: true, presence: true, inclusion: { in: ["lemon","ice","mint leaves","gin","pepper","whisky","fruit","olive","martini","lemonade","sparkling water"]}
 
   before_destroy :check_for_cocktail
 
@@ -15,3 +15,6 @@ class Ingredient < ActiveRecord::Base
   end
 
 end
+
+
+

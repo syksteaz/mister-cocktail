@@ -1,0 +1,10 @@
+<%= simple_form_for (@cocktail, @dose) do |f| %>
+
+  <% f.input :name, label: "Dose description" %>
+  <% f.input :ingredients, label: "Pick your ingredient" %>
+
+  <% f.button :submit, label_html: {class: "btn btn-success"} %>
+  <% end %>
+
+<!-- Comment peut-on faire reference a ingredients ici alors que dose ne comporte pas
+d'ingredients ? -->
