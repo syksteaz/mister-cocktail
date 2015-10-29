@@ -1,10 +1,16 @@
 <%= simple_form_for (@cocktail, @dose) do |f| %>
 
-  <% f.input :name, label: "Dose description" %>
-  <% f.input :ingredients, label: "Pick your ingredient" %>
+  <% f.input :description, label: "Dose description" %>
+  <% f.input :ingredient_id, collection: Ingredient.all %>
 
+# <!-- Ici comment savoir quand je cale :name que c'est pour le rattacher à ingrédient ?
+#  -->
   <% f.button :submit, label_html: {class: "btn btn-success"} %>
   <% end %>
+<!--
+
+Ici il faut faire un select sur les ingrédients qui renvoie dans les params l'ingrédient id,
+mais pas la peine de rattacher :name -->
 
 <!-- Comment peut-on faire reference a ingredients ici alors que dose ne comporte pas
 d'ingredients ? -->

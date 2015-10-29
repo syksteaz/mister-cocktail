@@ -1,5 +1,5 @@
 class DosesController < ApplicationController
-  before_action :find_cocktail_and_ingredient, only: [:new, :create]
+  before_action :find_cocktail, only: [:new, :create]
 
   def new
     @dose = Dose.new
@@ -7,24 +7,26 @@ class DosesController < ApplicationController
 
   def create
     @dose = @cocktail.doses.create(dose_params)
+    redirect_to cocktail_path(@cocktail)
     # @ingredient = @cocktail.ingredients.create(ingredient_params
       # Pas necessaire de créer un @ingredient, on le récupère des dose params
     # STOP ICI : comment créer ma @dose avec dose_params & ingredient_params ?
   end
 
   def delete
+    # TO DO
   end
 
 
 private
 
-  def find_cocktail_and_ingredient
+  def find_cocktail
     @cocktail = Cocktail.find(params[:cocktail_id])
     # @ingredient = Ingredient.find(params[:ingredient_id])
   end
 
   def dose_params
-    params.require(:dose).permit(:description)
+    params.require(:dose).permit(:description, :ingredient_id)
   end
 
   # def ingredient_params
