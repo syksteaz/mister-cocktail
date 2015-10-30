@@ -3,7 +3,7 @@
     <div class="col-xs-8 col-xs-offset-2">
       <h1>Your cocktail</h1>
       <h2><%= @cocktail.name %></h2>
-      <% image_tag @cocktail.picture.url(:medium) %>
+      <%= image_tag @cocktail.picture.url(:medium) %>
       <h3>To make this marvelous cocktail you'll need: </h3>
       <ul>
         <% @cocktail.doses.each do |dose| %>
